@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Topological sort", "Topological sort\Topological sort.vcxproj", "{CEA8084C-D443-4912-8D50-82CB3B4D0DDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEA8084C-D443-4912-8D50-82CB3B4D0DDF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CEA8084C-D443-4912-8D50-82CB3B4D0DDF}.Debug|Win32.Build.0 = Debug|Win32
+		{CEA8084C-D443-4912-8D50-82CB3B4D0DDF}.Release|Win32.ActiveCfg = Release|Win32
+		{CEA8084C-D443-4912-8D50-82CB3B4D0DDF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

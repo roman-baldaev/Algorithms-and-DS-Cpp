@@ -1,0 +1,51 @@
+﻿Построение начато 20.12.2015 21:53:52.
+     1>Проект "c:\documents\visual studio 2010\Projects\Vector.List.Set\Vector.List.Set\Vector.List.Set.vcxproj" в узле 2 (целевые объекты rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\Vector.List.Set.lastbuildstate" удаляется.
+       InitializeBuildStatus:
+         Создание "Debug\Vector.List.Set.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Vector.cpp
+         Vector.cpp
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(25): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(35): warning C4101: s: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(35): warning C4101: j: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(67): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(72): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(62): warning C4101: j: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(83): warning C4101: i: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(120): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(102): warning C4101: j: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(128): warning C4101: n: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(128): warning C4101: i: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(128): warning C4101: j: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(138): warning C4101: n: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(138): warning C4101: i: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(138): warning C4101: j: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(151): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(155): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(283): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(277): см. объявление "gets"
+     1>c:\documents\visual studio 2010\projects\vector.list.set\vector.list.set\vector.cpp(284): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(277): см. объявление "gets"
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Vector.List.Set.exe.embed.manifest.res" Debug\Vector.List.Set_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Vector.List.Set.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.lib" /MACHINE:X86 Debug\Vector.List.Set.exe.embed.manifest.res
+         Debug\Vector.obj
+       Manifest:
+         Файл "Debug\Vector.List.Set.exe.embed.manifest" удаляется.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Vector.List.Set.exe.embed.manifest" /manifest Debug\Vector.List.Set.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Vector.List.Set.exe.embed.manifest.res" Debug\Vector.List.Set_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Vector.List.Set.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.lib" /MACHINE:X86 Debug\Vector.List.Set.exe.embed.manifest.res
+         Debug\Vector.obj
+         Vector.List.Set.vcxproj -> c:\documents\visual studio 2010\Projects\Vector.List.Set\Debug\Vector.List.Set.exe
+       FinalizeBuildStatus:
+         Файл "Debug\Vector.List.Set.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\Vector.List.Set.lastbuildstate".
+     1>Построение проекта "c:\documents\visual studio 2010\Projects\Vector.List.Set\Vector.List.Set\Vector.List.Set.vcxproj" завершено (целевые объекты rebuild).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:01.63

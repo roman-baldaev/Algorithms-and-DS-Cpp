@@ -1,0 +1,27 @@
+﻿Построение начато 05.03.2016 21:53:00.
+     1>Проект "c:\documents\visual studio 2010\Projects\Sortes\Sortes\Sortes.vcxproj" в узле 2 (целевые объекты build).
+     1>InitializeBuildStatus:
+         Создание "Debug\Sortes.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Shell_Pyramid_Hoare_Bit.cpp
+         Shell_Pyramid_Hoare_Bit.cpp
+     1>c:\documents\visual studio 2010\projects\sortes\sortes\shell_pyramid_hoare_bit.cpp(104): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+       ManifestResourceCompile:
+         Для всех выходных данных обновления не требуется.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\Sortes\Debug\Sortes.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Sortes.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\Sortes\Debug\Sortes.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\Sortes\Debug\Sortes.lib" /MACHINE:X86 Debug\Sortes.exe.embed.manifest.res
+         Debug\Shell_Pyramid_Hoare_Bit.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Sortes.exe.embed.manifest" /manifest Debug\Sortes.exe.intermediate.manifest
+         Для всех выходных данных обновления не требуется.
+       LinkEmbedManifest:
+         Для всех выходных данных обновления не требуется.
+         Sortes.vcxproj -> c:\documents\visual studio 2010\Projects\Sortes\Debug\Sortes.exe
+       FinalizeBuildStatus:
+         Файл "Debug\Sortes.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\Sortes.lastbuildstate".
+     1>Построение проекта "c:\documents\visual studio 2010\Projects\Sortes\Sortes\Sortes.vcxproj" завершено (целевые объекты build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:01.17

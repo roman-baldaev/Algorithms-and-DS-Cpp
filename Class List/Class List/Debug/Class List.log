@@ -1,0 +1,18 @@
+﻿Построение начато 26.01.2016 13:39:37.
+     1>Проект "c:\documents\visual studio 2010\Projects\Class List\Class List\Class List.vcxproj" в узле 2 (целевые объекты rebuild).
+     1>PrepareForBuild:
+         Создание каталога "c:\documents\visual studio 2010\Projects\Class List\Debug\".
+       InitializeBuildStatus:
+         Создание "Debug\Class List.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Class List.exe.embed.manifest.res" "Debug\Class List_manifest.rc" 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\Class List\Debug\Class List.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Class List.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\Class List\Debug\Class List.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\Class List\Debug\Class List.lib" /MACHINE:X86 "Debug\Class List.exe.embed.manifest.res"
+     1>LINK : error LNK2001: неразрешенный внешний символ "_mainCRTStartup"
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Platforms\Win32\Microsoft.Cpp.Win32.Targets(268,5): error MSB6006: "link.exe" завершилась с кодом 1120.
+     1>c:\documents\visual studio 2010\Projects\Class List\Debug\Class List.exe : fatal error LNK1120: 1 неразрешенных внешних элементов
+     1>Построение проекта "c:\documents\visual studio 2010\Projects\Class List\Class List\Class List.vcxproj" завершено (целевые объекты rebuild) с ошибкой.
+
+СБОЙ построения.
+
+Затраченное время: 00:00:02.45

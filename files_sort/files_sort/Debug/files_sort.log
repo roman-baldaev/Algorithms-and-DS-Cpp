@@ -1,0 +1,80 @@
+﻿Построение начато 18.11.2015 23:59:44.
+     1>Проект "c:\documents\visual studio 2010\Projects\files_sort\files_sort\files_sort.vcxproj" в узле 2 (целевые объекты rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\files_sort.lastbuildstate" удаляется.
+       InitializeBuildStatus:
+         Обращение к "Debug\files_sort.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt sort.cpp
+         sort.cpp
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(9): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(10): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(11): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(18): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(24): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(32): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\razbienie.h(40): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(9): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(10): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(11): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(12): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(18): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(22): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(27): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(36): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(40): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(45): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(56): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sliyanie.h(61): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253): см. объявление "fscanf"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sort.cpp(16): warning C4996: 'fcloseall': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _fcloseall. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(720): см. объявление "fcloseall"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sort.cpp(17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234): см. объявление "fopen"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sort.cpp(23): warning C4996: 'fcloseall': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _fcloseall. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(720): см. объявление "fcloseall"
+     1>c:\documents\visual studio 2010\projects\files_sort\files_sort\sort.cpp(25): warning C4996: 'fcloseall': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _fcloseall. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(720): см. объявление "fcloseall"
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\files_sort.exe.embed.manifest.res" Debug\files_sort_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\files_sort.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.lib" /MACHINE:X86 Debug\files_sort.exe.embed.manifest.res
+         Debug\sort.obj
+       Manifest:
+         Файл "Debug\files_sort.exe.embed.manifest" удаляется.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\files_sort.exe.embed.manifest" /manifest Debug\files_sort.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\files_sort.exe.embed.manifest.res" Debug\files_sort_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\files_sort.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.lib" /MACHINE:X86 Debug\files_sort.exe.embed.manifest.res
+         Debug\sort.obj
+         files_sort.vcxproj -> c:\documents\visual studio 2010\Projects\files_sort\Debug\files_sort.exe
+       FinalizeBuildStatus:
+         Файл "Debug\files_sort.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\files_sort.lastbuildstate".
+     1>Построение проекта "c:\documents\visual studio 2010\Projects\files_sort\files_sort\files_sort.vcxproj" завершено (целевые объекты rebuild).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:13.42
