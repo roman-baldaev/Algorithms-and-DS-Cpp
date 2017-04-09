@@ -7,7 +7,7 @@
 using namespace std;
 
 fstream **f, source_file;
-int n, number_sf; //n - number of files, number_sf - amount of numbers in source file
+int n, number_sf, *a, *d, L, j, tmp; //n - number of files, number_sf - amount of numbers in source file
 
 char **names, *name;
 
@@ -65,5 +65,43 @@ void main () {
 	*f[n-1] << x << " " << "-1" << " ";
 	f[n-1]->close();
 	source_file.close();
+	//Phase of split
+	f[n-1]->open(names[n-1], ios::in);
+	a=new int[n];
+	d=new int[n];
+	for(int i=0;i<n-1;i++) {
+		a[i]=1;
+		d[i]=1;
+	}
+	d[n-1]=0;
+	a[n-1]=0;
+	int L=1,j=0;
+	*f[n-1] >> x;
+	while ( *f[n-1] ) {
+		while ( x != -1 )
+		{
+			*f[j] << x <<" ";
+			*f[n-1] >> x;
+		}
+		*f[j] << x << " ";
+		d[j]--;
+		if ( ( *f[n-1] >> x ) == NULL ) break;
+		else {
+			if(d[j]<d[j+1]) j++;
+			else if(d[j]==0) {	
+				L++;
+				tmp=a[0];
+				for ( int i = 0; i < n-1; i++ ) {
+					d[i] = a[i+1]-a[i]+tmp;
+					a[i] = a[i+1]+tmp;
+				}
+				j=0;
+			}
+			else j=0;
+		}
+	}			
+for( int i = 0; i < n; i++ )
+f[i] -> close();
+f[n-1] -> clear();
 
 }
