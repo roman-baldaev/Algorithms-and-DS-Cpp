@@ -1,0 +1,30 @@
+﻿Построение начато 10.04.2017 0:34:56.
+     1>Проект "c:\documents\visual studio 2010\Projects\Multiphase sort\Multiphase sort\Multiphase sort.vcxproj" в узле 2 (целевые объекты build).
+     1>InitializeBuildStatus:
+         Создание "Debug\Multiphase sort.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt multiphase_sort.cpp
+         multiphase_sort.cpp
+     1>c:\documents\visual studio 2010\projects\multiphase sort\multiphase sort\multiphase_sort.cpp(26): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
+     1>c:\documents\visual studio 2010\projects\multiphase sort\multiphase sort\multiphase_sort.cpp(29): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110): см. объявление "strcat"
+     1>c:\documents\visual studio 2010\projects\multiphase sort\multiphase sort\multiphase_sort.cpp(42): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+     1>c:\documents\visual studio 2010\projects\multiphase sort\multiphase sort\multiphase_sort.cpp(160): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\conio.h(128): см. объявление "getch"
+     1>c:\documents\visual studio 2010\projects\multiphase sort\multiphase sort\multiphase_sort.cpp(114): warning C4101: prev: неиспользованная локальная переменная
+     1>c:\documents\visual studio 2010\projects\multiphase sort\multiphase sort\functions.h(29): warning C4715: check_minus_1: значение возвращается не при всех путях выполнения
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\documents\visual studio 2010\Projects\Multiphase sort\Debug\Multiphase sort.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Multiphase sort.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\documents\visual studio 2010\Projects\Multiphase sort\Debug\Multiphase sort.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\documents\visual studio 2010\Projects\Multiphase sort\Debug\Multiphase sort.lib" /MACHINE:X86 Debug\multiphase_sort.obj
+         LINK : не найден или не выполнена сборка c:\documents\visual studio 2010\Projects\Multiphase sort\Debug\Multiphase sort.exe при последней инкрементной компоновке; выполняется полная компоновка
+         Multiphase sort.vcxproj -> c:\documents\visual studio 2010\Projects\Multiphase sort\Debug\Multiphase sort.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"c:\documents\visual studio 2010\Projects\Multiphase sort\Debug\Multiphase sort.exe;#1" /manifest "Debug\Multiphase sort.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Файл "Debug\Multiphase sort.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\Multiphase sort.lastbuildstate".
+     1>Построение проекта "c:\documents\visual studio 2010\Projects\Multiphase sort\Multiphase sort\Multiphase sort.vcxproj" завершено (целевые объекты build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:00.93
