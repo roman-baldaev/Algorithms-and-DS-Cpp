@@ -149,12 +149,13 @@ void main () {
 						*f[i] >> a[i];
 					}
 			}
-			 while ( !check_minus_1 (a,n-1) ) {
+			 while ( check_minus_1(a,n-1) == false ) {
 					min = find_minArr ( a, n-1 );
 					*f[n-1] << a[min] << " ";
 					*f[min] >> a[min];
-					if( f[n-2] -> eof()) break;
+					
 			 }
+			 *f[n-1]<<-1<<" ";
 			
 		}	
 			 getch();
