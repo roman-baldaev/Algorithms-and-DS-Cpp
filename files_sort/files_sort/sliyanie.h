@@ -60,4 +60,6 @@ void sliyanie (char *a, char *b, char *c)
 		fprintf (A, "%d ", c1);
 		fscanf (C, "%d", &c1);
 	}
+	fcloseall ();
+	
 }

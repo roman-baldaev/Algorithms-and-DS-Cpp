@@ -42,6 +42,7 @@ void razbienie (char *a, char *b, char *c)
 				}
 				a1=a2;
 	}
+	fcloseall();
 				
 	
 }
