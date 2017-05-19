@@ -47,5 +47,6 @@ class binaryTree {
 
 		Node * madeTree ( int, int ); 
 		Node * getRoot ();
+		Node * addNode ( int );
 };
 void PrintT(Graphics^ , Node , int , int , int , int );
