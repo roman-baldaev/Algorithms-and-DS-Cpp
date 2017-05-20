@@ -1,5 +1,6 @@
 #pragma once
-
+binaryTree A;
+Node *Add; //узел для выделения цветом добавленного
 namespace trees_Forms {
 
 	using namespace System;
@@ -42,6 +43,8 @@ namespace trees_Forms {
 	private: System::Windows::Forms::TextBox^  addNode;
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::Button^  Add;
+	private: System::Windows::Forms::Button^  show_Tree;
+
 
 
 
@@ -70,6 +73,7 @@ namespace trees_Forms {
 			this->addNode = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->Add = (gcnew System::Windows::Forms::Button());
+			this->show_Tree = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -136,6 +140,7 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->show_Tree);
 			this->groupBox1->Controls->Add(this->Add);
 			this->groupBox1->Controls->Add(this->addNode);
 			this->groupBox1->Controls->Add(this->label1);
@@ -161,6 +166,16 @@ namespace trees_Forms {
 			this->Add->UseVisualStyleBackColor = true;
 			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
 			// 
+			// show_Tree
+			// 
+			this->show_Tree->Location = System::Drawing::Point(463, 222);
+			this->show_Tree->Name = L"show_Tree";
+			this->show_Tree->Size = System::Drawing::Size(75, 23);
+			this->show_Tree->TabIndex = 6;
+			this->show_Tree->Text = L"Show";
+			this->show_Tree->UseVisualStyleBackColor = true;
+			this->show_Tree->Click += gcnew System::EventHandler(this, &Form1::show_Tree_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -181,23 +196,21 @@ namespace trees_Forms {
 
 		}
 #pragma endregion
+	
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 			 }
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 			 }
 	private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {
 			 }
-			 binaryTree x( n, 100);
+			
 	private: System::Void justTree_Click(System::Object^  sender, System::EventArgs^  e) {
 
 
-				//int n = Convert::ToInt32(number->Text);
-				  
-				
-				 Graphics^ gr = this -> panel1 -> CreateGraphics();
-				 gr ->  Clear( Color::Teal );
-	
-				 PrintT(gr,x.getRoot(),0,this->panel1->Width-26,5,-1);
+				int n = Convert::ToInt32(number->Text);  //размерность дерева
+				 binaryTree x (n, 100); //копия дерева 
+				 A=x; //присваиваем глобальному
+				 
 			 
 			 }
 	private: System::Void number_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -206,11 +219,17 @@ private: System::Void labelNumber_Click(System::Object^  sender, System::EventAr
 		 }
 private: System::Void Add_Click(System::Object^  sender, System::EventArgs^  e) {
 			 int n = Convert::ToInt32(addNode->Text);
-			 x.addNode (x.getRoot(), n);
+			 A.addNode (A.getRoot(), n);
 		 }
 private: System::Void addNode_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void show_Tree_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::Teal );
+	
+				 PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
 		 }
 };
 }

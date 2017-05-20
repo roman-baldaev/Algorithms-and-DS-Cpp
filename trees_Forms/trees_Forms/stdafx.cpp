@@ -21,10 +21,16 @@ Node * binaryTree :: madeTree ( int n, int range ) {  //функция, создающее дерев
 Node * binaryTree :: getRoot () {
 	return root;
 }
-void binaryTree :: addNode ( Node *R, int key ) {
-	if ( R == NULL ) {
-		R = new Node ( key );
-		return;
+Node * binaryTree :: addNode ( Node *R, int key ) {
+	if ( R -> left == NULL ) {
+		Node * T = new Node ( key );
+		R -> left = T;
+		return T;
+	}
+	if ( R -> right == NULL ) {
+		Node * T = new Node ( key );
+		R -> right = T;
+		return T;
 	}
 	if ((rand()%2) == 0) {
 		addNode ( R -> left, key );
@@ -32,6 +38,7 @@ void binaryTree :: addNode ( Node *R, int key ) {
 	else {
 		addNode ( R -> right, key );
 	}
+	return R;
 }
 
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
@@ -49,12 +56,9 @@ void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 	gr->DrawEllipse(p, x1, y1, d, d);
 	Brush^ br_e;
 	srand(time(NULL));
-	switch ((N++)%3) {
-	case 0:  br_e = gcnew SolidBrush(Color::Green); break;
-	case 1:  br_e = gcnew SolidBrush(Color::Red); break;
-	case 2:  br_e = gcnew SolidBrush(Color::Blue); break;
-	default:  br_e = gcnew SolidBrush(Color::White);
-	}
+
+	br_e = gcnew SolidBrush(Color::White);
+	
 	
 	gr -> FillEllipse(br_e, x1, y1, d, d);
 	

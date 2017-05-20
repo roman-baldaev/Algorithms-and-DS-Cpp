@@ -4,8 +4,7 @@
 #pragma once
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
-#include <time.h>
-#include <stdlib.h>
+
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -14,7 +13,8 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-
+#include <time.h>
+#include <stdlib.h>
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
 class Node {
@@ -47,6 +47,6 @@ class binaryTree {
 
 		Node * madeTree ( int, int ); 
 		Node * getRoot ();
-		Node * addNode ( int );
+		Node *  addNode ( Node *, int );
 };
 void PrintT(Graphics^ , Node , int , int , int , int );
