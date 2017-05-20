@@ -46,27 +46,28 @@ void main () {
 	int mask2 = 1;
 	_asm {
 		NOT cV
-		mov eax, cV
-		mov edx, 0
+		mov edx, cV
+		mov eax, 0
 		mov ecx, n
 		L:
-			mov eax, cV
+			mov edx, cV
+			and edx, mask2
+			cmp edx, 0
+			jne L1
 			
-			shr mask, 2
-			shr mask2, 1
-			mov ebx, eax
-			and eax, mask
-			add edx, eax
-			
-			add i, 1
+			R: shl mask2, 1
+			   shl mask, 2
 		loop L
-		
-		mov Y, edx
+		jmp FIN
+		L1: add eax, mask
+			jmp R
+		FIN: mov Y, eax
 	}
 	cout << "Vector Y: ";
-	for ( i = 2*n-1; i >= 0; i--) {
+	for ( i = 2*(n-1); i >= 0; i--) {
 		mask = 1 << i;
 		
 		cout << (bool)(mask & Y);
 	}
+	cout << endl;
 }
