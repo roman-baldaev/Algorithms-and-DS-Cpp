@@ -21,24 +21,22 @@ Node * binaryTree :: madeTree ( int n, int range ) {  //функция, создающее дерев
 Node * binaryTree :: getRoot () {
 	return root;
 }
-Node * binaryTree :: addNode ( Node *R, int key ) {
+Node * binaryTree :: add_Node ( Node *R, Node *T ) {
 	if ( R -> left == NULL ) {
-		Node * T = new Node ( key );
 		R -> left = T;
-		return T;
+		return R -> left;
 	}
 	if ( R -> right == NULL ) {
-		Node * T = new Node ( key );
 		R -> right = T;
-		return T;
+		return R -> right;
 	}
 	if ((rand()%2) == 0) {
-		addNode ( R -> left, key );
+		add_Node ( R -> left, T );
 	}
 	else {
-		addNode ( R -> right, key );
+		add_Node ( R -> right, T );
 	}
-	return R;
+	
 }
 
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
@@ -56,9 +54,10 @@ void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 	gr->DrawEllipse(p, x1, y1, d, d);
 	Brush^ br_e;
 	srand(time(NULL));
-
-	br_e = gcnew SolidBrush(Color::White);
-	
+	switch ( u -> getStatus () ) {
+		case 0: br_e = gcnew SolidBrush(Color::White); break;
+		case 1: br_e = gcnew SolidBrush(Color::Yellow); break;
+	}
 	
 	gr -> FillEllipse(br_e, x1, y1, d, d);
 	

@@ -20,13 +20,17 @@ using namespace System::Drawing;
 class Node {
 		friend class binaryTree;
 		friend void PrintT(Graphics^ gr, Node *p, int l, int r, int y, int x_r);
+	private:	
 		int key;
+		
 		Node *left, *right;
 	public:
-		Node ( int k = 0, Node *l = NULL, Node *r = NULL ) {
+		int status;
+		Node ( int k = 0, Node *l = NULL, Node *r = NULL, int s = 0 ) {
 			key = k;
 			left = l;
 			right = r;
+			status = s;
 		}
 		Node * madeTree ( int n, int range ) {
 			srand(time(NULL));
@@ -37,6 +41,11 @@ class Node {
 			node->right = madeTree (nR, range);
 			return node;
 		}
+	
+		int getStatus () {
+			return status;
+		}
+		
 };
 class binaryTree {
 	private:
@@ -47,6 +56,6 @@ class binaryTree {
 
 		Node * madeTree ( int, int ); 
 		Node * getRoot ();
-		Node *  addNode ( Node *, int );
+		Node *  add_Node ( Node *, Node * );
 };
 void PrintT(Graphics^ , Node , int , int , int , int );

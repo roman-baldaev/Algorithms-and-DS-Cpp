@@ -1,6 +1,7 @@
 #pragma once
 binaryTree A;
-Node *Add; //узел для выделения цветом добавленного
+Node * AddHead; //узел для выделения цветом добавленного
+Node * prevAdd;
 namespace trees_Forms {
 
 	using namespace System;
@@ -219,17 +220,22 @@ private: System::Void labelNumber_Click(System::Object^  sender, System::EventAr
 		 }
 private: System::Void Add_Click(System::Object^  sender, System::EventArgs^  e) {
 			 int n = Convert::ToInt32(addNode->Text);
-			 A.addNode (A.getRoot(), n);
+			 if (prevAdd) {
+				 prevAdd -> status --;
+			 }
+			 Node *T = new Node ( n, NULL, NULL, 1);
+			 AddHead = A.add_Node ( A.getRoot(), T );
+			 prevAdd = T;
+			 
 		 }
 private: System::Void addNode_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void show_Tree_Click(System::Object^  sender, System::EventArgs^  e) {
-			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			Graphics^ gr = this -> panel1 -> CreateGraphics();
 			gr ->  Clear( Color::Teal );
-	
-				 PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
+			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
 		 }
 };
 }
