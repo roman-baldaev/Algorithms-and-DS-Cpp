@@ -1,7 +1,9 @@
 #pragma once
+
 binaryTree A;
 Node * AddHead; //узел для выделения цветом добавленного
-Node * prevAdd;
+Node * prevAdd; //предыдущий добавленный
+Node * prevFind;  //предыдущий найденный
 namespace trees_Forms {
 
 	using namespace System;
@@ -45,6 +47,9 @@ namespace trees_Forms {
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::Button^  Add;
 	private: System::Windows::Forms::Button^  show_Tree;
+	private: System::Windows::Forms::Button^  findKeyBut;
+	private: System::Windows::Forms::TextBox^  textFindKey;
+	private: System::Windows::Forms::Label^  labelFindNode;
 
 
 
@@ -73,8 +78,11 @@ namespace trees_Forms {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->addNode = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->Add = (gcnew System::Windows::Forms::Button());
+			this->findKeyBut = (gcnew System::Windows::Forms::Button());
+			this->textFindKey = (gcnew System::Windows::Forms::TextBox());
+			this->labelFindNode = (gcnew System::Windows::Forms::Label());
 			this->show_Tree = (gcnew System::Windows::Forms::Button());
+			this->Add = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -141,6 +149,9 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->findKeyBut);
+			this->groupBox1->Controls->Add(this->textFindKey);
+			this->groupBox1->Controls->Add(this->labelFindNode);
 			this->groupBox1->Controls->Add(this->show_Tree);
 			this->groupBox1->Controls->Add(this->Add);
 			this->groupBox1->Controls->Add(this->addNode);
@@ -157,15 +168,35 @@ namespace trees_Forms {
 			this->groupBox1->Text = L"Make Tree";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
 			// 
-			// Add
+			// findKeyBut
 			// 
-			this->Add->Location = System::Drawing::Point(967, 15);
-			this->Add->Name = L"Add";
-			this->Add->Size = System::Drawing::Size(75, 23);
-			this->Add->TabIndex = 5;
-			this->Add->Text = L"Add";
-			this->Add->UseVisualStyleBackColor = true;
-			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
+			this->findKeyBut->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(204)));
+			this->findKeyBut->Location = System::Drawing::Point(964, 46);
+			this->findKeyBut->Name = L"findKeyBut";
+			this->findKeyBut->Size = System::Drawing::Size(75, 22);
+			this->findKeyBut->TabIndex = 9;
+			this->findKeyBut->Text = L"Find key\r\n\r\n";
+			this->findKeyBut->UseVisualStyleBackColor = true;
+			this->findKeyBut->Click += gcnew System::EventHandler(this, &Form1::findKeyBut_Click);
+			// 
+			// textFindKey
+			// 
+			this->textFindKey->Location = System::Drawing::Point(858, 46);
+			this->textFindKey->Name = L"textFindKey";
+			this->textFindKey->Size = System::Drawing::Size(100, 22);
+			this->textFindKey->TabIndex = 8;
+			this->textFindKey->TextChanged += gcnew System::EventHandler(this, &Form1::textFindKey_TextChanged);
+			// 
+			// labelFindNode
+			// 
+			this->labelFindNode->AutoSize = true;
+			this->labelFindNode->Location = System::Drawing::Point(775, 45);
+			this->labelFindNode->Name = L"labelFindNode";
+			this->labelFindNode->Size = System::Drawing::Size(77, 17);
+			this->labelFindNode->TabIndex = 7;
+			this->labelFindNode->Text = L"Find Node:";
+			this->labelFindNode->Click += gcnew System::EventHandler(this, &Form1::labelFindNode_Click);
 			// 
 			// show_Tree
 			// 
@@ -176,6 +207,16 @@ namespace trees_Forms {
 			this->show_Tree->Text = L"Show";
 			this->show_Tree->UseVisualStyleBackColor = true;
 			this->show_Tree->Click += gcnew System::EventHandler(this, &Form1::show_Tree_Click);
+			// 
+			// Add
+			// 
+			this->Add->Location = System::Drawing::Point(967, 15);
+			this->Add->Name = L"Add";
+			this->Add->Size = System::Drawing::Size(75, 23);
+			this->Add->TabIndex = 5;
+			this->Add->Text = L"Add";
+			this->Add->UseVisualStyleBackColor = true;
+			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
 			// 
 			// Form1
 			// 
@@ -221,11 +262,14 @@ private: System::Void labelNumber_Click(System::Object^  sender, System::EventAr
 private: System::Void Add_Click(System::Object^  sender, System::EventArgs^  e) {
 			 int n = Convert::ToInt32(addNode->Text);
 			 if (prevAdd) {
-				 prevAdd -> status --;
+				 prevAdd -> status = 0; //изменяем статус цвета для предыдущего
 			 }
-			 Node *T = new Node ( n, NULL, NULL, 1);
-			 AddHead = A.add_Node ( A.getRoot(), T );
-			 prevAdd = T;
+			 Node *T = new Node ( n, NULL, NULL, 1); //создаем новый узел для добавления
+			 AddHead = A.add_Node ( A.getRoot(), T ); //добавляем
+			 prevAdd = T; //сохраняем добавленный узел в предыдущий
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
 			 
 		 }
 private: System::Void addNode_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -234,7 +278,26 @@ private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  
 		 }
 private: System::Void show_Tree_Click(System::Object^  sender, System::EventArgs^  e) {
 			Graphics^ gr = this -> panel1 -> CreateGraphics();
-			gr ->  Clear( Color::Teal );
+			gr ->  Clear( Color::White );
+			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void labelFindNode_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void textFindKey_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void findKeyBut_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int n = Convert::ToInt32(textFindKey->Text);
+			 if (prevFind) {
+				 prevFind -> status = 0; //изменяем статус цвета для предыдущего найденного
+			 }
+			 Node *T; 
+			 T = A.findKey ( A.getRoot(), n); //создаем новый узел для найденного
+			 if ( T != NULL ) {
+				T -> status = 2; 
+			 }
+			 prevFind = T; //сохраняем найденный узел в предыдущий
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
 			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
 		 }
 };

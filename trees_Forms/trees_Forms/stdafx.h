@@ -32,16 +32,12 @@ class Node {
 			right = r;
 			status = s;
 		}
-		Node * madeTree ( int n, int range ) {
-			srand(time(NULL));
-			if ( n == 0 ) return NULL;
-			int nL = (n-1)/2, nR = n - 1 - nL;
-			Node *node = new Node ( rand()%range );
-			node->left = madeTree (nL, range);
-			node->right = madeTree (nR, range);
-			return node;
+		Node *& getLeft () {
+			return left;
 		}
-	
+		Node *& getRight () {
+			return right;
+		}
 		int getStatus () {
 			return status;
 		}
@@ -54,8 +50,11 @@ class binaryTree {
 		binaryTree ();
 		binaryTree ( int, int );
 
-		Node * madeTree ( int, int ); 
 		Node * getRoot ();
-		Node *  add_Node ( Node *, Node * );
+		Node * add_Node ( Node *, Node * );
+		Node * findKey ( Node *, int );
+		void addKeyToTree ( int );
+
 };
-void PrintT(Graphics^ , Node , int , int , int , int );
+void PrintT(Graphics^ , Node , int , int , int , int ); //функция рисования
+void addKey ( Node *, int ); //внешняя функция добавления ключа
