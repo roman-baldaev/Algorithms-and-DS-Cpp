@@ -20,10 +20,11 @@ using namespace System::Drawing;
 class Node {
 		friend class binaryTree;
 		friend void PrintT(Graphics^ gr, Node *p, int l, int r, int y, int x_r);
+		friend void addKey (Node *, int );
 	private:	
 		int key;
 		
-		Node *left, *right;
+		Node *left, *right, *prev;
 	public:
 		int status;
 		Node ( int k = 0, Node *l = NULL, Node *r = NULL, int s = 0 ) {
@@ -49,12 +50,16 @@ class binaryTree {
 	public:
 		binaryTree ();
 		binaryTree ( int, int );
-
+		
 		Node * getRoot ();
 		Node * add_Node ( Node *, Node * );
 		Node * findKey ( Node *, int );
-		void addKeyToTree ( int );
+		Node * findPrev ( Node *, Node * ); //search father for node
+		Node * findLeaf ( Node * ); // find node with empty subtree 
+		void addKeyToTree ( int ); // add key to this tree
+		bool deleteKey ( int );
+	
 
 };
-void PrintT(Graphics^ , Node , int , int , int , int ); //функция рисования
-void addKey ( Node *, int ); //внешняя функция добавления ключа
+void PrintT(Graphics^ , Node , int , int , int , int ); //print function
+void addKey ( Node *, int ); 

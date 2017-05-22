@@ -1,6 +1,5 @@
-// stdafx.cpp: исходный файл, содержащий только стандартные включаемые модули
-// trees_Forms.pch будет предкомпилированным заголовком
-// stdafx.obj будет содержать предварительно откомпилированные сведения о типе
+
+
 
 #include "stdafx.h"
 int N=0;
@@ -28,10 +27,12 @@ Node * binaryTree :: add_Node ( Node *R, Node *T ) {
 	}
 	if ( R -> left == NULL ) {
 		R -> left = T;
+		T -> prev = R;
 		return R -> left;
 	}
 	if ( R -> right == NULL ) {
 		R -> right = T;
+		T -> prev = R;
 		return R -> right;
 	}
 	if ((rand()%2) == 0) {
@@ -42,7 +43,7 @@ Node * binaryTree :: add_Node ( Node *R, Node *T ) {
 	}
 	
 }
-Node * binaryTree :: findKey ( Node *R, int k ) {  // поиск элемента
+Node * binaryTree :: findKey ( Node *R, int k ) {  
 	if ( (R == NULL) || (R -> key == k) ) return R;
 	Node *T;
 	if ( (T = findKey ( R->left, k )) != NULL )  return T;
@@ -58,6 +59,79 @@ void   binaryTree :: addKeyToTree ( int k ) {
 		addKey ( root, k );
 	}
 }
+bool binaryTree :: deleteKey ( int k ) {
+	Node *D = findKey ( root, k );
+	if ( D == NULL ) return false;
+	if ( (D -> left == NULL) && ( D -> right == NULL ) ) {
+		if ( D -> prev -> left == D ) {
+			D -> prev -> left = NULL;
+		}
+		if ( D -> prev -> right == D ) {
+			D -> prev -> right = NULL;
+		}
+	}
+	if ( (D -> left) == NULL )  {
+		
+			Node * d = D;
+			D = D -> right;
+			delete d;
+			return true;
+	}
+	if ( D -> right == NULL )  {
+			Node * d = D;
+			D = D -> left;
+			delete d;
+			return true;
+	}
+	else {
+		srand ( time ( NULL ) );
+		Node *leaf;
+		if ( rand () % 2 == 0 ) {
+			leaf = findLeaf ( D -> left );
+		}
+/*		else {
+			leaf = findLeaf ( D -> right );
+		}
+			if ( D == P -> left ) {
+				P -> left = D -> left;
+			}
+			else {
+				P -> right = D -> left;
+			}
+			if ( leaf -> left == NULL ) {
+				leaf -> left = D -> right;
+			}
+			else {
+				leaf -> right = D -> right;
+			}
+			delete D;
+			return true;
+	}
+*/
+	}
+}
+Node * binaryTree :: findLeaf ( Node * R ) {
+	if ( ( R == NULL ) || ( R -> left == NULL ) || ( R -> right == NULL ) ) return R;
+	if ( R -> left ) {
+		findLeaf ( R -> left );
+	}
+	if ( R -> right ) {
+		findLeaf ( R -> right );
+	}
+}
+Node * binaryTree :: findPrev ( Node * R, Node * F ) {
+	if ( R ) {
+		if ( R -> left != NULL) { 
+			if ( R -> left == F ) return R;
+		}
+		if ( R -> right != NULL ) { 
+			if ( R -> right == F ) return R;
+		}
+	}
+	if ( R -> left ) findPrev ( R->left, F );
+	if ( R -> right ) findPrev ( R -> right, F );
+	
+} 
 
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 {	int x = (l + r)/2;
@@ -99,10 +173,12 @@ void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 void addKey ( Node *R, int k ) {
 	if ( R -> getLeft() == NULL ) {
 		(R -> getLeft()) = new Node ( k );
+		R -> getLeft() -> prev = R;
 		return;
 	}
 	if ( R -> getRight() == NULL ) {
 	    R -> getRight() = new Node ( k );
+		R -> getRight() -> prev = R;
 		return;
 	}
 	if ( rand() % 2 == 0 ) {

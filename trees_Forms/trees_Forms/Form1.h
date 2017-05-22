@@ -50,6 +50,9 @@ namespace trees_Forms {
 	private: System::Windows::Forms::Button^  findKeyBut;
 	private: System::Windows::Forms::TextBox^  textFindKey;
 	private: System::Windows::Forms::Label^  labelFindNode;
+	private: System::Windows::Forms::Button^  butDelete;
+	private: System::Windows::Forms::TextBox^  textDelete;
+	private: System::Windows::Forms::Label^  labelDelete;
 
 
 
@@ -83,6 +86,9 @@ namespace trees_Forms {
 			this->labelFindNode = (gcnew System::Windows::Forms::Label());
 			this->show_Tree = (gcnew System::Windows::Forms::Button());
 			this->Add = (gcnew System::Windows::Forms::Button());
+			this->labelDelete = (gcnew System::Windows::Forms::Label());
+			this->textDelete = (gcnew System::Windows::Forms::TextBox());
+			this->butDelete = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -149,6 +155,9 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->butDelete);
+			this->groupBox1->Controls->Add(this->textDelete);
+			this->groupBox1->Controls->Add(this->labelDelete);
 			this->groupBox1->Controls->Add(this->findKeyBut);
 			this->groupBox1->Controls->Add(this->textFindKey);
 			this->groupBox1->Controls->Add(this->labelFindNode);
@@ -217,6 +226,34 @@ namespace trees_Forms {
 			this->Add->Text = L"Add";
 			this->Add->UseVisualStyleBackColor = true;
 			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
+			// 
+			// labelDelete
+			// 
+			this->labelDelete->AutoSize = true;
+			this->labelDelete->Location = System::Drawing::Point(775, 75);
+			this->labelDelete->Name = L"labelDelete";
+			this->labelDelete->Size = System::Drawing::Size(79, 17);
+			this->labelDelete->TabIndex = 10;
+			this->labelDelete->Text = L"Delete key:";
+			this->labelDelete->Click += gcnew System::EventHandler(this, &Form1::labelDelete_Click);
+			// 
+			// textDelete
+			// 
+			this->textDelete->Location = System::Drawing::Point(858, 75);
+			this->textDelete->Name = L"textDelete";
+			this->textDelete->Size = System::Drawing::Size(100, 22);
+			this->textDelete->TabIndex = 11;
+			this->textDelete->TextChanged += gcnew System::EventHandler(this, &Form1::textDelete_TextChanged);
+			// 
+			// butDelete
+			// 
+			this->butDelete->Location = System::Drawing::Point(964, 75);
+			this->butDelete->Name = L"butDelete";
+			this->butDelete->Size = System::Drawing::Size(75, 23);
+			this->butDelete->TabIndex = 12;
+			this->butDelete->Text = L"Delete";
+			this->butDelete->UseVisualStyleBackColor = true;
+			this->butDelete->Click += gcnew System::EventHandler(this, &Form1::butDelete_Click);
 			// 
 			// Form1
 			// 
@@ -296,6 +333,17 @@ private: System::Void findKeyBut_Click(System::Object^  sender, System::EventArg
 				T -> status = 2; 
 			 }
 			 prevFind = T; //сохраняем найденный узел в предыдущий
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void labelDelete_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void textDelete_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void butDelete_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int n = Convert::ToInt32(textDelete->Text);
+			 A.deleteKey ( n );
 			 Graphics^ gr = this -> panel1 -> CreateGraphics();
 			gr ->  Clear( Color::White );
 			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
