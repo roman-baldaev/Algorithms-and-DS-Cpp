@@ -62,61 +62,148 @@ void   binaryTree :: addKeyToTree ( int k ) {
 bool binaryTree :: deleteKey ( int k ) {
 	Node *D = findKey ( root, k );
 	if ( D == NULL ) return false;
+	if ( D == root ) {
+		if ( D -> left == NULL ) {
+			root = D -> right;
+			D -> right -> prev = NULL;
+		}
+		else if ( D -> right == NULL ) {
+			root = D -> left;
+			D -> left -> prev = NULL;
+		}
+		else {
+			Node *leaf;
+			if ( rand () % 2 == 0 ) {
+				D -> left -> prev = NULL;
+				root = D -> left;
+				leaf = findLeaf ( D -> left );
+				leaf -> right = D -> right;
+				D -> right -> prev = leaf;
+			}
+			else {
+				D -> right -> prev = NULL;
+				root = D -> right;
+				leaf = findLeaf ( D -> right );
+				leaf -> right = D -> left;
+				D -> right -> prev = leaf;
+			}
+		}
+		delete D; 
+		return true;
+	}
 	if ( (D -> left == NULL) && ( D -> right == NULL ) ) {
 		if ( D -> prev -> left == D ) {
 			D -> prev -> left = NULL;
 		}
-		if ( D -> prev -> right == D ) {
+		else if ( D -> prev -> right == D ) {
 			D -> prev -> right = NULL;
 		}
 	}
-	if ( (D -> left) == NULL )  {
+	if ( D -> left == NULL )  {
 		
-			Node * d = D;
-			D = D -> right;
-			delete d;
+			if ( D -> prev -> right == D ) {
+				D -> prev -> right = D -> right;
+				D -> prev -> right -> prev = D -> prev;
+			}
+			else if ( D -> prev -> left == D ) {
+				D -> prev -> left = D -> right;
+				D -> prev -> left -> prev = D -> prev;
+			}
+			delete D;
 			return true;
 	}
 	if ( D -> right == NULL )  {
-			Node * d = D;
-			D = D -> left;
-			delete d;
+			if ( D -> prev -> right == D ) {
+				D -> prev -> right = D -> left;
+				D -> prev -> right -> prev = D -> prev;
+			}
+			else if ( D -> prev -> left == D ) {
+				D -> prev -> left = D -> left;
+				D -> prev -> left -> prev = D -> prev;
+			}
+			delete D;
 			return true;
 	}
+	
 	else {
 		srand ( time ( NULL ) );
 		Node *leaf;
 		if ( rand () % 2 == 0 ) {
 			leaf = findLeaf ( D -> left );
+			if ( rand () % 2 == 0 ) {
+				Node *P = new Node ( leaf -> key, D -> right, NULL );
+				if ( leaf -> prev -> left == leaf ) {
+					leaf -> prev -> left = P;
+				}
+				else {
+					leaf -> prev -> right = P;
+				}
+				
+			}
+			else {
+				Node *P = new Node ( leaf -> key, NULL, D -> right );
+				if ( leaf -> prev -> left == leaf ) {
+					leaf -> prev -> left = P;
+				}
+				else {
+					leaf -> prev -> right = P;
+				}
+			}
+			if ( D -> prev -> left == D ) {
+				D -> prev -> left = D -> left;
+				D -> prev -> left -> prev = D -> prev;
+			}
+			else {
+				D -> prev -> right = D -> left;
+				D -> prev -> right -> prev = D -> prev;
+			}
 		}
-/*		else {
+		else {
 			leaf = findLeaf ( D -> right );
+			if ( rand () % 2 == 0 ) {
+				Node *P = new Node ( leaf -> key, D -> left, NULL );
+				if ( leaf -> prev -> left == leaf ) {
+					leaf -> prev -> left = P;
+					P -> prev = leaf -> prev;
+				}
+				else {
+					leaf -> prev -> right = P;
+					P -> prev = leaf -> prev;
+				}
+				
+			}
+			else {
+				Node *P = new Node ( leaf -> key, NULL, D -> left );
+				if ( leaf -> prev -> left == leaf ) {
+					leaf -> prev -> left = P;
+					P -> prev = leaf -> prev;
+				}
+				else {
+					leaf -> prev -> right = P;
+					P -> prev = leaf -> prev;
+				}
+			}
+			if ( D -> prev -> left == D ) {
+				D -> prev -> left = D -> right;
+				D -> prev -> left -> prev = D -> prev;
+			}
+			else {
+				D -> prev -> right = D -> right;
+				D -> prev -> right -> prev = D -> prev;
+			}
 		}
-			if ( D == P -> left ) {
-				P -> left = D -> left;
-			}
-			else {
-				P -> right = D -> left;
-			}
-			if ( leaf -> left == NULL ) {
-				leaf -> left = D -> right;
-			}
-			else {
-				leaf -> right = D -> right;
-			}
-			delete D;
-			return true;
-	}
-*/
+		delete D;
+		return true;
+	
 	}
 }
 Node * binaryTree :: findLeaf ( Node * R ) {
-	if ( ( R == NULL ) || ( R -> left == NULL ) || ( R -> right == NULL ) ) return R;
+	if (( R -> left == NULL ) && ( R -> right == NULL ) ) return R;
 	if ( R -> left ) {
-		findLeaf ( R -> left );
+		return findLeaf ( R -> left );
 	}
 	if ( R -> right ) {
-		findLeaf ( R -> right );
+		return findLeaf ( R -> right );
 	}
 }
 Node * binaryTree :: findPrev ( Node * R, Node * F ) {
@@ -132,6 +219,13 @@ Node * binaryTree :: findPrev ( Node * R, Node * F ) {
 	if ( R -> right ) findPrev ( R -> right, F );
 	
 } 
+void binaryTree :: obhod ( Node * p, System::String^ &a )  
+{if  (p->left) obhod(p->left, a);
+   a += p -> key + " ";
+  if (p->right) obhod(p->right, a);
+  
+}
+
 
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 {	int x = (l + r)/2;

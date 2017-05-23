@@ -1,7 +1,7 @@
-﻿Построение начато 22.05.2017 12:07:44.
+﻿Построение начато 23.05.2017 15:26:10.
      1>Проект "C:\Documents\Visual Studio 2010\Projects\trees_Forms\trees_Forms\trees_Forms.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
-         Создание "Debug\trees_Forms.unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\trees_Forms.unsuccessfulbuild".
        GenerateTargetFrameworkMonikerAttribute:
        Целевой объект "GenerateTargetFrameworkMonikerAttribute" пропускается, так как все выходные файлы актуальны по отношению к входным.
        ClCompile:
@@ -29,4 +29,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:01.21
+Затраченное время: 00:00:01.37

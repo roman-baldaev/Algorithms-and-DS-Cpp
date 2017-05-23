@@ -4,6 +4,7 @@ binaryTree A;
 Node * AddHead; //узел для выделения цветом добавленного
 Node * prevAdd; //предыдущий добавленный
 Node * prevFind;  //предыдущий найденный
+
 namespace trees_Forms {
 
 	using namespace System;
@@ -53,6 +54,8 @@ namespace trees_Forms {
 	private: System::Windows::Forms::Button^  butDelete;
 	private: System::Windows::Forms::TextBox^  textDelete;
 	private: System::Windows::Forms::Label^  labelDelete;
+	private: System::Windows::Forms::TextBox^  textObhod;
+	private: System::Windows::Forms::Button^  obhodBut;
 
 
 
@@ -81,14 +84,16 @@ namespace trees_Forms {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->addNode = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->butDelete = (gcnew System::Windows::Forms::Button());
+			this->textDelete = (gcnew System::Windows::Forms::TextBox());
+			this->labelDelete = (gcnew System::Windows::Forms::Label());
 			this->findKeyBut = (gcnew System::Windows::Forms::Button());
 			this->textFindKey = (gcnew System::Windows::Forms::TextBox());
 			this->labelFindNode = (gcnew System::Windows::Forms::Label());
 			this->show_Tree = (gcnew System::Windows::Forms::Button());
 			this->Add = (gcnew System::Windows::Forms::Button());
-			this->labelDelete = (gcnew System::Windows::Forms::Label());
-			this->textDelete = (gcnew System::Windows::Forms::TextBox());
-			this->butDelete = (gcnew System::Windows::Forms::Button());
+			this->textObhod = (gcnew System::Windows::Forms::TextBox());
+			this->obhodBut = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -155,6 +160,8 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->obhodBut);
+			this->groupBox1->Controls->Add(this->textObhod);
 			this->groupBox1->Controls->Add(this->butDelete);
 			this->groupBox1->Controls->Add(this->textDelete);
 			this->groupBox1->Controls->Add(this->labelDelete);
@@ -176,6 +183,34 @@ namespace trees_Forms {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Make Tree";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// butDelete
+			// 
+			this->butDelete->Location = System::Drawing::Point(964, 75);
+			this->butDelete->Name = L"butDelete";
+			this->butDelete->Size = System::Drawing::Size(75, 23);
+			this->butDelete->TabIndex = 12;
+			this->butDelete->Text = L"Delete";
+			this->butDelete->UseVisualStyleBackColor = true;
+			this->butDelete->Click += gcnew System::EventHandler(this, &Form1::butDelete_Click);
+			// 
+			// textDelete
+			// 
+			this->textDelete->Location = System::Drawing::Point(858, 75);
+			this->textDelete->Name = L"textDelete";
+			this->textDelete->Size = System::Drawing::Size(100, 22);
+			this->textDelete->TabIndex = 11;
+			this->textDelete->TextChanged += gcnew System::EventHandler(this, &Form1::textDelete_TextChanged);
+			// 
+			// labelDelete
+			// 
+			this->labelDelete->AutoSize = true;
+			this->labelDelete->Location = System::Drawing::Point(775, 75);
+			this->labelDelete->Name = L"labelDelete";
+			this->labelDelete->Size = System::Drawing::Size(79, 17);
+			this->labelDelete->TabIndex = 10;
+			this->labelDelete->Text = L"Delete key:";
+			this->labelDelete->Click += gcnew System::EventHandler(this, &Form1::labelDelete_Click);
 			// 
 			// findKeyBut
 			// 
@@ -227,33 +262,24 @@ namespace trees_Forms {
 			this->Add->UseVisualStyleBackColor = true;
 			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
 			// 
-			// labelDelete
+			// textObhod
 			// 
-			this->labelDelete->AutoSize = true;
-			this->labelDelete->Location = System::Drawing::Point(775, 75);
-			this->labelDelete->Name = L"labelDelete";
-			this->labelDelete->Size = System::Drawing::Size(79, 17);
-			this->labelDelete->TabIndex = 10;
-			this->labelDelete->Text = L"Delete key:";
-			this->labelDelete->Click += gcnew System::EventHandler(this, &Form1::labelDelete_Click);
+			this->textObhod->Location = System::Drawing::Point(299, 21);
+			this->textObhod->Multiline = true;
+			this->textObhod->Name = L"textObhod";
+			this->textObhod->Size = System::Drawing::Size(454, 71);
+			this->textObhod->TabIndex = 13;
+			this->textObhod->TextChanged += gcnew System::EventHandler(this, &Form1::textObhod_TextChanged);
 			// 
-			// textDelete
+			// obhodBut
 			// 
-			this->textDelete->Location = System::Drawing::Point(858, 75);
-			this->textDelete->Name = L"textDelete";
-			this->textDelete->Size = System::Drawing::Size(100, 22);
-			this->textDelete->TabIndex = 11;
-			this->textDelete->TextChanged += gcnew System::EventHandler(this, &Form1::textDelete_TextChanged);
-			// 
-			// butDelete
-			// 
-			this->butDelete->Location = System::Drawing::Point(964, 75);
-			this->butDelete->Name = L"butDelete";
-			this->butDelete->Size = System::Drawing::Size(75, 23);
-			this->butDelete->TabIndex = 12;
-			this->butDelete->Text = L"Delete";
-			this->butDelete->UseVisualStyleBackColor = true;
-			this->butDelete->Click += gcnew System::EventHandler(this, &Form1::butDelete_Click);
+			this->obhodBut->Location = System::Drawing::Point(463, 98);
+			this->obhodBut->Name = L"obhodBut";
+			this->obhodBut->Size = System::Drawing::Size(75, 46);
+			this->obhodBut->TabIndex = 14;
+			this->obhodBut->Text = L"Show elements";
+			this->obhodBut->UseVisualStyleBackColor = true;
+			this->obhodBut->Click += gcnew System::EventHandler(this, &Form1::obhodBut_Click);
 			// 
 			// Form1
 			// 
@@ -347,6 +373,14 @@ private: System::Void butDelete_Click(System::Object^  sender, System::EventArgs
 			 Graphics^ gr = this -> panel1 -> CreateGraphics();
 			gr ->  Clear( Color::White );
 			PrintT(gr, A.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void textObhod_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void obhodBut_Click(System::Object^  sender, System::EventArgs^  e) {
+			 textObhod -> Text = "\0";
+			 System::String^ a;
+			 A.obhod ( A.getRoot(), a);
+			 textObhod -> Text = a;
 		 }
 };
 }

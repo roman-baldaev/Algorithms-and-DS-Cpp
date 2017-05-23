@@ -58,7 +58,10 @@ class binaryTree {
 		Node * findLeaf ( Node * ); // find node with empty subtree 
 		void addKeyToTree ( int ); // add key to this tree
 		bool deleteKey ( int );
-	
+		void obhod ( Node *, System::String^ &); // L-K-R
+ 
+
+
 
 };
 void PrintT(Graphics^ , Node , int , int , int , int ); //print function
