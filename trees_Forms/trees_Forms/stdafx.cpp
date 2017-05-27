@@ -62,14 +62,16 @@ void   binaryTree :: addKeyToTree ( int k ) {
 bool binaryTree :: deleteKey ( int k ) {
 	Node *D = findKey ( root, k );
 	if ( D == NULL ) return false;
-	if ( D == root ) {
-		if ( D -> left == NULL ) {
+	if ( D == root ) {  // если удал€еемый узел - корень
+		if ( D -> left == NULL ) { // если у корн€ нет левого поддерева
 			root = D -> right;
 			D -> right -> prev = NULL;
+			
 		}
-		else if ( D -> right == NULL ) {
+		else if ( D -> right == NULL ) { // если у корн€ нет правого поддерева
 			root = D -> left;
 			D -> left -> prev = NULL;
+			
 		}
 		else {
 			Node *leaf;
@@ -85,7 +87,7 @@ bool binaryTree :: deleteKey ( int k ) {
 				root = D -> right;
 				leaf = findLeaf ( D -> right );
 				leaf -> right = D -> left;
-				D -> right -> prev = leaf;
+				D -> left -> prev = leaf;
 			}
 		}
 		delete D; 
