@@ -1,9 +1,11 @@
 #pragma once
 
 binaryTree A;
+SearchTree B;
 Node * AddHead; //узел для выделения цветом добавленного
 Node * prevAdd; //предыдущий добавленный
 Node * prevFind;  //предыдущий найденный
+Node * STprevFind;
 
 namespace trees_Forms {
 
@@ -56,6 +58,10 @@ namespace trees_Forms {
 	private: System::Windows::Forms::Label^  labelDelete;
 	private: System::Windows::Forms::TextBox^  textObhod;
 	private: System::Windows::Forms::Button^  obhodBut;
+	private: System::Windows::Forms::Button^  sTreeBut;
+	private: System::Windows::Forms::Button^  print_ST;
+	private: System::Windows::Forms::Button^  find_ST_but;
+	private: System::Windows::Forms::Button^  delete_ST_butt;
 
 
 
@@ -84,6 +90,11 @@ namespace trees_Forms {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->addNode = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->find_ST_but = (gcnew System::Windows::Forms::Button());
+			this->print_ST = (gcnew System::Windows::Forms::Button());
+			this->sTreeBut = (gcnew System::Windows::Forms::Button());
+			this->obhodBut = (gcnew System::Windows::Forms::Button());
+			this->textObhod = (gcnew System::Windows::Forms::TextBox());
 			this->butDelete = (gcnew System::Windows::Forms::Button());
 			this->textDelete = (gcnew System::Windows::Forms::TextBox());
 			this->labelDelete = (gcnew System::Windows::Forms::Label());
@@ -92,8 +103,7 @@ namespace trees_Forms {
 			this->labelFindNode = (gcnew System::Windows::Forms::Label());
 			this->show_Tree = (gcnew System::Windows::Forms::Button());
 			this->Add = (gcnew System::Windows::Forms::Button());
-			this->textObhod = (gcnew System::Windows::Forms::TextBox());
-			this->obhodBut = (gcnew System::Windows::Forms::Button());
+			this->delete_ST_butt = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -160,6 +170,10 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->delete_ST_butt);
+			this->groupBox1->Controls->Add(this->find_ST_but);
+			this->groupBox1->Controls->Add(this->print_ST);
+			this->groupBox1->Controls->Add(this->sTreeBut);
 			this->groupBox1->Controls->Add(this->obhodBut);
 			this->groupBox1->Controls->Add(this->textObhod);
 			this->groupBox1->Controls->Add(this->butDelete);
@@ -183,6 +197,57 @@ namespace trees_Forms {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Make Tree";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// find_ST_but
+			// 
+			this->find_ST_but->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(204)));
+			this->find_ST_but->Location = System::Drawing::Point(883, 169);
+			this->find_ST_but->Name = L"find_ST_but";
+			this->find_ST_but->Size = System::Drawing::Size(75, 22);
+			this->find_ST_but->TabIndex = 17;
+			this->find_ST_but->Text = L"Find ST";
+			this->find_ST_but->UseVisualStyleBackColor = true;
+			this->find_ST_but->Click += gcnew System::EventHandler(this, &Form1::find_ST_but_Click);
+			// 
+			// print_ST
+			// 
+			this->print_ST->Location = System::Drawing::Point(372, 222);
+			this->print_ST->Name = L"print_ST";
+			this->print_ST->Size = System::Drawing::Size(75, 23);
+			this->print_ST->TabIndex = 16;
+			this->print_ST->Text = L"Show ST";
+			this->print_ST->UseVisualStyleBackColor = true;
+			this->print_ST->Click += gcnew System::EventHandler(this, &Form1::print_ST_Click);
+			// 
+			// sTreeBut
+			// 
+			this->sTreeBut->Location = System::Drawing::Point(187, 50);
+			this->sTreeBut->Name = L"sTreeBut";
+			this->sTreeBut->Size = System::Drawing::Size(75, 23);
+			this->sTreeBut->TabIndex = 15;
+			this->sTreeBut->Text = L"S. tree";
+			this->sTreeBut->UseVisualStyleBackColor = true;
+			this->sTreeBut->Click += gcnew System::EventHandler(this, &Form1::sTreeBut_Click);
+			// 
+			// obhodBut
+			// 
+			this->obhodBut->Location = System::Drawing::Point(463, 98);
+			this->obhodBut->Name = L"obhodBut";
+			this->obhodBut->Size = System::Drawing::Size(75, 46);
+			this->obhodBut->TabIndex = 14;
+			this->obhodBut->Text = L"Show elements";
+			this->obhodBut->UseVisualStyleBackColor = true;
+			this->obhodBut->Click += gcnew System::EventHandler(this, &Form1::obhodBut_Click);
+			// 
+			// textObhod
+			// 
+			this->textObhod->Location = System::Drawing::Point(299, 21);
+			this->textObhod->Multiline = true;
+			this->textObhod->Name = L"textObhod";
+			this->textObhod->Size = System::Drawing::Size(454, 71);
+			this->textObhod->TabIndex = 13;
+			this->textObhod->TextChanged += gcnew System::EventHandler(this, &Form1::textObhod_TextChanged);
 			// 
 			// butDelete
 			// 
@@ -262,24 +327,15 @@ namespace trees_Forms {
 			this->Add->UseVisualStyleBackColor = true;
 			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
 			// 
-			// textObhod
+			// delete_ST_butt
 			// 
-			this->textObhod->Location = System::Drawing::Point(299, 21);
-			this->textObhod->Multiline = true;
-			this->textObhod->Name = L"textObhod";
-			this->textObhod->Size = System::Drawing::Size(454, 71);
-			this->textObhod->TabIndex = 13;
-			this->textObhod->TextChanged += gcnew System::EventHandler(this, &Form1::textObhod_TextChanged);
-			// 
-			// obhodBut
-			// 
-			this->obhodBut->Location = System::Drawing::Point(463, 98);
-			this->obhodBut->Name = L"obhodBut";
-			this->obhodBut->Size = System::Drawing::Size(75, 46);
-			this->obhodBut->TabIndex = 14;
-			this->obhodBut->Text = L"Show elements";
-			this->obhodBut->UseVisualStyleBackColor = true;
-			this->obhodBut->Click += gcnew System::EventHandler(this, &Form1::obhodBut_Click);
+			this->delete_ST_butt->Location = System::Drawing::Point(883, 197);
+			this->delete_ST_butt->Name = L"delete_ST_butt";
+			this->delete_ST_butt->Size = System::Drawing::Size(75, 23);
+			this->delete_ST_butt->TabIndex = 18;
+			this->delete_ST_butt->Text = L"Del. ST";
+			this->delete_ST_butt->UseVisualStyleBackColor = true;
+			this->delete_ST_butt->Click += gcnew System::EventHandler(this, &Form1::delete_ST_butt_Click);
 			// 
 			// Form1
 			// 
@@ -381,6 +437,38 @@ private: System::Void obhodBut_Click(System::Object^  sender, System::EventArgs^
 			 System::String^ a;
 			 A.obhod ( A.getRoot(), a);
 			 textObhod -> Text = a;
+		 }
+private: System::Void sTreeBut_Click(System::Object^  sender, System::EventArgs^  e) {
+			     int n = Convert::ToInt32(number->Text);  //размерность дерева
+				 SearchTree x (n, 100); //копия дерева 
+				 B=x; //присваиваем глобальному
+		 }
+private: System::Void print_ST_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, B.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void find_ST_but_Click(System::Object^  sender, System::EventArgs^  e) {
+			  int n = Convert::ToInt32(textFindKey->Text);
+			 if (STprevFind) {
+				 STprevFind -> status = 0; //изменяем статус цвета для предыдущего найденного
+			 }
+			 Node *T; 
+			 T = B.findKey ( B.getRoot(), n); //создаем новый узел для найденного
+			 if ( T != NULL ) {
+				T -> status = 2; 
+			 }
+			 STprevFind = T; //сохраняем найденный узел в предыдущий
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, B.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void delete_ST_butt_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int n = Convert::ToInt32(textDelete->Text);
+			 B.deleteKey ( n );
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, B.getRoot(),0,this->panel1->Width-26,5,-1);
 		 }
 };
 }

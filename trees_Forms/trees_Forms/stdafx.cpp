@@ -73,7 +73,7 @@ bool binaryTree :: deleteKey ( int k ) {
 			D -> left -> prev = NULL;
 			
 		}
-		else {
+		else {  
 			Node *leaf;
 			if ( rand () % 2 == 0 ) {
 				D -> left -> prev = NULL;
@@ -100,6 +100,8 @@ bool binaryTree :: deleteKey ( int k ) {
 		else if ( D -> prev -> right == D ) {
 			D -> prev -> right = NULL;
 		}
+		delete D;
+			return true;
 	}
 	if ( D -> left == NULL )  {
 		
@@ -136,9 +138,11 @@ bool binaryTree :: deleteKey ( int k ) {
 				Node *P = new Node ( leaf -> key, D -> right, NULL );
 				if ( leaf -> prev -> left == leaf ) {
 					leaf -> prev -> left = P;
+					P -> prev = leaf -> prev;
 				}
 				else {
 					leaf -> prev -> right = P;
+					P -> prev = leaf -> prev;
 				}
 				
 			}
@@ -146,9 +150,11 @@ bool binaryTree :: deleteKey ( int k ) {
 				Node *P = new Node ( leaf -> key, NULL, D -> right );
 				if ( leaf -> prev -> left == leaf ) {
 					leaf -> prev -> left = P;
+					P -> prev = leaf -> prev;
 				}
 				else {
 					leaf -> prev -> right = P;
+					P -> prev = leaf -> prev;
 				}
 			}
 			if ( D -> prev -> left == D ) {
@@ -228,6 +234,138 @@ void binaryTree :: obhod ( Node * p, System::String^ &a )
   
 }
 
+SearchTree :: SearchTree ( int n, int range ) {
+	srand(time(NULL));
+	root = NULL;
+	for ( int i = 0; i < n; i++ ) {
+		addKeyToTree ( rand()%range );
+	}
+}
+void SearchTree :: addKey ( Node *R, int k ) {
+	if ( R -> key == k ) {
+		return;
+	}
+	if ( k < R -> key ) {
+		if ( R -> left == NULL ) {
+			R -> left = new Node ( k );
+			R -> left -> prev = R;
+		}
+		else {
+			addKey ( R -> left, k ); 	
+		}	
+	}
+	if ( k > R -> key ) {
+		if ( R -> right == NULL ) {
+			R -> right = new Node ( k );
+			R -> right -> prev = R;
+		}
+		else {
+			addKey ( R -> right, k ); 	
+		}	
+	}
+}
+void SearchTree :: addKeyToTree ( int k ) {
+	if ( root == NULL ) {
+		root = new Node ( k );
+		return;
+	}
+	addKey ( root, k );
+}
+Node * SearchTree :: findKey ( Node *R, int k ) {
+	if ( R -> key == k ) {
+		return R;
+	}
+	if ( k < R -> key ) {
+		if ( R -> left == NULL ) {
+			return NULL;
+		}
+		return findKey ( R -> left, k );
+	}
+	else if ( k > R -> key ) {
+		if ( R -> right == NULL ) {
+			return NULL;
+		}
+		return findKey ( R -> right, k );
+	}
+}
+bool SearchTree :: deleteKey ( int k ) {
+	Node *T = findKey ( root, k );
+	if ( T == NULL ) {
+		return false;
+	}
+	if ( T -> left == NULL && T -> right == NULL ) {
+		if ( T -> prev -> left == T ) {
+			T -> prev -> left = NULL;
+		}
+		else if ( T -> prev -> right == T ) {
+			T -> prev -> right = NULL;
+		}
+		delete T;
+		return true;
+	}
+	if ( T -> left == NULL ) {
+		if ( T -> prev -> left == T ) {
+			T -> prev -> left = T -> right;
+			T -> right -> prev = T -> prev;
+		}
+		else if ( T -> prev -> right == T ) {
+			T -> prev -> right = T -> right;
+			T -> right -> prev = T -> prev;
+		}
+		delete T;
+		return true;
+	}
+	if ( T -> right == NULL ) {
+		if ( T -> prev -> left == T ) {
+			T -> prev -> left = T -> left;
+			T -> left -> prev = T -> prev;
+		}
+		else if ( T -> prev -> right == T ) {
+			T -> prev -> right = T -> left;
+			T -> left -> prev = T -> prev;
+		}
+		delete T;
+		return true;
+	}
+	if ( T -> right -> left == NULL ) {
+		Node * N = T -> right;
+		if ( N -> right != NULL ) {
+			T -> key = N -> key;
+			T -> right = N -> right;
+			N -> right -> prev = T;
+		}
+		else {
+			T -> key = N -> key;
+			T -> right = NULL;
+		}
+		delete N;
+		return true;
+	}
+	else {
+		Node * N = min_Right ( T -> right );
+		if ( N -> right == NULL ) {
+			T -> key = N -> key;
+			N -> prev -> left = NULL;
+			delete N;
+			return true;
+		}
+		else {
+			T -> key = N -> key;
+			N -> prev -> left = N -> right;
+			N -> right -> prev = N -> prev;
+			delete N;
+			return true;
+		}
+	}
+}
+Node * SearchTree :: min_Right ( Node * R ) {
+	if ( R -> left == NULL ) {
+		return R;
+	}
+	else {
+		return min_Right ( R -> left );
+	}
+}
 
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 {	int x = (l + r)/2;

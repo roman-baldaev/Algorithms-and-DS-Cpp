@@ -19,6 +19,7 @@ using namespace System::Drawing;
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
 class Node {
 		friend class binaryTree;
+		friend class SearchTree;
 		friend void PrintT(Graphics^ gr, Node *p, int l, int r, int y, int x_r);
 		friend void addKey (Node *, int );
 	private:	
@@ -45,7 +46,7 @@ class Node {
 		
 };
 class binaryTree {
-	private:
+	protected:
 		Node *root;
 	public:
 		binaryTree ();
@@ -59,9 +60,16 @@ class binaryTree {
 		void addKeyToTree ( int ); // add key to this tree
 		bool deleteKey ( int );
 		void obhod ( Node *, System::String^ &); // L-K-R
- 
+};
 
-
+class SearchTree: public binaryTree {
+	public:
+		SearchTree ( int = 1, int = 100 );
+		void addKey ( Node *, int );
+		void addKeyToTree ( int );
+		Node * findKey ( Node *, int );
+		bool deleteKey ( int );
+		Node * min_Right ( Node * );
 
 };
 void PrintT(Graphics^ , Node , int , int , int , int ); //print function
