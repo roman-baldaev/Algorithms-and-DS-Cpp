@@ -65,11 +65,12 @@ class binaryTree {
 class SearchTree: public binaryTree {
 	public:
 		SearchTree ( int = 1, int = 100 );
-		void addKey ( Node *, int );
+		Node * addKey ( Node *, int );
 		void addKeyToTree ( int );
 		Node * findKey ( Node *, int );
 		bool deleteKey ( int );
 		Node * min_Right ( Node * );
+		Node * addNode ( Node * );
 
 };
 void PrintT(Graphics^ , Node , int , int , int , int ); //print function

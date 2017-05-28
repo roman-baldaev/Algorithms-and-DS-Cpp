@@ -241,26 +241,28 @@ SearchTree :: SearchTree ( int n, int range ) {
 		addKeyToTree ( rand()%range );
 	}
 }
-void SearchTree :: addKey ( Node *R, int k ) {
+Node * SearchTree :: addKey ( Node *R, int k ) {
 	if ( R -> key == k ) {
-		return;
+		return NULL;
 	}
 	if ( k < R -> key ) {
 		if ( R -> left == NULL ) {
 			R -> left = new Node ( k );
 			R -> left -> prev = R;
+			return R -> left;
 		}
 		else {
-			addKey ( R -> left, k ); 	
+			return addKey ( R -> left, k ); 	
 		}	
 	}
 	if ( k > R -> key ) {
 		if ( R -> right == NULL ) {
 			R -> right = new Node ( k );
 			R -> right -> prev = R;
+			return R -> right;
 		}
 		else {
-			addKey ( R -> right, k ); 	
+			return addKey ( R -> right, k ); 	
 		}	
 	}
 }
@@ -365,6 +367,9 @@ Node * SearchTree :: min_Right ( Node * R ) {
 	else {
 		return min_Right ( R -> left );
 	}
+}
+Node * SearchTree :: addNode ( Node * R ) {
+	return addKey ( root, R -> key );
 }
 
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
