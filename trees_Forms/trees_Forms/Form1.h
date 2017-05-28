@@ -9,6 +9,9 @@ Node * prevFind;  //предыдущий найденный
 Node * STprevFind;
 Node * STprevAdd;
 Node * STaddHead;
+Node * BSTprevFind;
+Node * BSTprevAdd;
+Node * BSTaddHead;
 
 namespace trees_Forms {
 
@@ -73,6 +76,10 @@ namespace trees_Forms {
 	private: System::Windows::Forms::Button^  LR_Rotation;
 	private: System::Windows::Forms::Button^  BS_Tree_Butt;
 	private: System::Windows::Forms::Button^  show_BST_Butt;
+	private: System::Windows::Forms::Button^  delBST_Butt;
+	private: System::Windows::Forms::Button^  findKeyBST;
+	private: System::Windows::Forms::Button^  addBST_KeyButt;
+	private: System::Windows::Forms::Button^  showBST_elements;
 
 
 
@@ -101,6 +108,10 @@ namespace trees_Forms {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->addNode = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->addBST_KeyButt = (gcnew System::Windows::Forms::Button());
+			this->findKeyBST = (gcnew System::Windows::Forms::Button());
+			this->delBST_Butt = (gcnew System::Windows::Forms::Button());
+			this->show_BST_Butt = (gcnew System::Windows::Forms::Button());
 			this->BS_Tree_Butt = (gcnew System::Windows::Forms::Button());
 			this->RL_Rotation = (gcnew System::Windows::Forms::Button());
 			this->LR_Rotation = (gcnew System::Windows::Forms::Button());
@@ -122,7 +133,7 @@ namespace trees_Forms {
 			this->labelFindNode = (gcnew System::Windows::Forms::Label());
 			this->show_Tree = (gcnew System::Windows::Forms::Button());
 			this->Add = (gcnew System::Windows::Forms::Button());
-			this->show_BST_Butt = (gcnew System::Windows::Forms::Button());
+			this->showBST_elements = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -189,6 +200,10 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->showBST_elements);
+			this->groupBox1->Controls->Add(this->addBST_KeyButt);
+			this->groupBox1->Controls->Add(this->findKeyBST);
+			this->groupBox1->Controls->Add(this->delBST_Butt);
 			this->groupBox1->Controls->Add(this->show_BST_Butt);
 			this->groupBox1->Controls->Add(this->BS_Tree_Butt);
 			this->groupBox1->Controls->Add(this->RL_Rotation);
@@ -224,6 +239,48 @@ namespace trees_Forms {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Make Tree";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// addBST_KeyButt
+			// 
+			this->addBST_KeyButt->Location = System::Drawing::Point(782, 222);
+			this->addBST_KeyButt->Name = L"addBST_KeyButt";
+			this->addBST_KeyButt->Size = System::Drawing::Size(75, 23);
+			this->addBST_KeyButt->TabIndex = 28;
+			this->addBST_KeyButt->Text = L"Add BST";
+			this->addBST_KeyButt->UseVisualStyleBackColor = true;
+			this->addBST_KeyButt->Click += gcnew System::EventHandler(this, &Form1::addBST_KeyButt_Click);
+			// 
+			// findKeyBST
+			// 
+			this->findKeyBST->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(204)));
+			this->findKeyBST->Location = System::Drawing::Point(782, 169);
+			this->findKeyBST->Name = L"findKeyBST";
+			this->findKeyBST->Size = System::Drawing::Size(75, 22);
+			this->findKeyBST->TabIndex = 27;
+			this->findKeyBST->Text = L"Find BST\r\n";
+			this->findKeyBST->UseVisualStyleBackColor = true;
+			this->findKeyBST->Click += gcnew System::EventHandler(this, &Form1::findKeyBST_Click);
+			// 
+			// delBST_Butt
+			// 
+			this->delBST_Butt->Location = System::Drawing::Point(782, 197);
+			this->delBST_Butt->Name = L"delBST_Butt";
+			this->delBST_Butt->Size = System::Drawing::Size(75, 23);
+			this->delBST_Butt->TabIndex = 26;
+			this->delBST_Butt->Text = L"Del. BST";
+			this->delBST_Butt->UseVisualStyleBackColor = true;
+			this->delBST_Butt->Click += gcnew System::EventHandler(this, &Form1::delBST_Butt_Click);
+			// 
+			// show_BST_Butt
+			// 
+			this->show_BST_Butt->Location = System::Drawing::Point(544, 222);
+			this->show_BST_Butt->Name = L"show_BST_Butt";
+			this->show_BST_Butt->Size = System::Drawing::Size(88, 23);
+			this->show_BST_Butt->TabIndex = 25;
+			this->show_BST_Butt->Text = L"Show BST";
+			this->show_BST_Butt->UseVisualStyleBackColor = true;
+			this->show_BST_Butt->Click += gcnew System::EventHandler(this, &Form1::show_BST_Butt_Click);
 			// 
 			// BS_Tree_Butt
 			// 
@@ -432,15 +489,15 @@ namespace trees_Forms {
 			this->Add->UseVisualStyleBackColor = true;
 			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
 			// 
-			// show_BST_Butt
+			// showBST_elements
 			// 
-			this->show_BST_Butt->Location = System::Drawing::Point(544, 222);
-			this->show_BST_Butt->Name = L"show_BST_Butt";
-			this->show_BST_Butt->Size = System::Drawing::Size(88, 23);
-			this->show_BST_Butt->TabIndex = 25;
-			this->show_BST_Butt->Text = L"Show BST";
-			this->show_BST_Butt->UseVisualStyleBackColor = true;
-			this->show_BST_Butt->Click += gcnew System::EventHandler(this, &Form1::show_BST_Butt_Click);
+			this->showBST_elements->Location = System::Drawing::Point(544, 98);
+			this->showBST_elements->Name = L"showBST_elements";
+			this->showBST_elements->Size = System::Drawing::Size(88, 46);
+			this->showBST_elements->TabIndex = 29;
+			this->showBST_elements->Text = L"Show BST elements";
+			this->showBST_elements->UseVisualStyleBackColor = true;
+			this->showBST_elements->Click += gcnew System::EventHandler(this, &Form1::showBST_elements_Click);
 			// 
 			// Form1
 			// 
@@ -623,6 +680,47 @@ private: System::Void show_BST_Butt_Click(System::Object^  sender, System::Event
 			  Graphics^ gr = this -> panel1 -> CreateGraphics();
 			gr ->  Clear( Color::White );
 			PrintT(gr, C.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void delBST_Butt_Click(System::Object^  sender, System::EventArgs^  e) {
+			  int n = Convert::ToInt32(textDelete->Text);
+			 C.deleteKey ( n );
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, C.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void findKeyBST_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int n = Convert::ToInt32(textFindKey->Text);
+			 if (BSTprevFind) {
+				 BSTprevFind -> status = 0; //изменяем статус цвета для предыдущего найденного
+			 }
+			 Node *T; 
+			 T = C.findKey ( C.getRoot(), n); //создаем новый узел для найденного
+			 if ( T != NULL ) {
+				T -> status = 2; 
+			 }
+			 BSTprevFind = T; //сохраняем найденный узел в предыдущий
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, C.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void addBST_KeyButt_Click(System::Object^  sender, System::EventArgs^  e) {
+			  int n = Convert::ToInt32(addNode->Text);
+			 if ( BSTprevAdd ) {
+				 BSTprevAdd -> status = 0; //изменяем статус цвета для предыдущего
+			 }
+			 Node *T = new Node ( n, NULL, NULL, 1); //создаем новый узел для добавления
+			 BSTaddHead = C.addNode ( T ); //добавляем
+			 BSTaddHead -> status = 1;
+			 BSTprevAdd = BSTaddHead; //сохраняем добавленный узел в предыдущий
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, C.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void showBST_elements_Click(System::Object^  sender, System::EventArgs^  e) {
+			  textObhod -> Text = "\0";
+			 System::String^ a;
+			 C.obhod ( C.getRoot(), a);
+			 textObhod -> Text = a;
 		 }
 };
 }

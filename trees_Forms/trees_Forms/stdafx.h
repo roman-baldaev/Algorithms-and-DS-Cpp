@@ -148,6 +148,7 @@ class BalancedSearchTree: public SearchTree {
 		Node * RL_Once_Rotation ( Node * );
 		Node * LR_Double_Rotation ( Node * );
 		Node * RL_Double_Rotation ( Node * );
+		
 		int Hight ( Node * );
 		int Balance ( Node * );
 };

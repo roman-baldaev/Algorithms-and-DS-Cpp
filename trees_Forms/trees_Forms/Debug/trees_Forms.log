@@ -1,4 +1,4 @@
-﻿Построение начато 28.05.2017 19:29:06.
+﻿Построение начато 28.05.2017 22:07:26.
      1>Проект "C:\Documents\Visual Studio 2010\Projects\trees_Forms\trees_Forms\trees_Forms.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\trees_Forms.unsuccessfulbuild", так как было задано "AlwaysCreate".
@@ -10,7 +10,7 @@
      1>stdafx.cpp(10): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
      1>stdafx.cpp(133): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
      1>stdafx.cpp(238): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-     1>stdafx.cpp(524): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+     1>stdafx.cpp(603): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
      1>c:\documents\visual studio 2010\projects\trees_forms\trees_forms\stdafx.cpp(216): warning C4715: binaryTree::findLeaf: значение возвращается не при всех путях выполнения
      1>c:\documents\visual studio 2010\projects\trees_forms\trees_forms\stdafx.cpp(229): warning C4715: binaryTree::findPrev: значение возвращается не при всех путях выполнения
      1>c:\documents\visual studio 2010\projects\trees_forms\trees_forms\stdafx.cpp(268): warning C4715: SearchTree::addKey: значение возвращается не при всех путях выполнения
@@ -23,7 +23,8 @@
          Создание кода...
          Для всех выходных данных обновления не требуется.
        CoreResGen:
-         Отсутствуют ресурсы, устаревшие по отношению к файлам своих источников. Пропуск формирования ресурсов.
+         "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /compile Form1.resX,Debug\trees_Forms.Form1.resources
+         Обрабатывается файл ресурсов "Form1.resX", результирующий объект: "Debug\trees_Forms.Form1.resources".
        ResourceCompile:
          Для всех выходных данных обновления не требуется.
        Link:
@@ -42,4 +43,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:01.53
+Затраченное время: 00:00:01.41
