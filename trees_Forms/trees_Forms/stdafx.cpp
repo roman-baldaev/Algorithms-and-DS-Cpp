@@ -372,6 +372,141 @@ Node * SearchTree :: addNode ( Node * R ) {
 	return addKey ( root, R -> key );
 }
 
+BalancedSearchTree :: BalancedSearchTree ( int n, int range ) {
+	root = NULL;
+	for ( int i = 0; i < n; i++ ) {
+		addKeyToTree ( rand()%range );
+	}
+}
+int BalancedSearchTree :: Hight ( Node * R ) {
+	if ( R == NULL ) {
+		return 0;
+	}
+	int l, r; 
+	l = r = 0;
+	if ( R -> left == 0 && R -> right == 0 ) return 1;
+	else {
+		if ( R -> left ) l = Hight ( R -> left );
+        if ( R -> right ) r = Hight ( R -> right );
+        if (l < r ) return r + 1;
+	    else  return l+1;
+    }
+}
+int BalancedSearchTree :: Balance ( Node * R ) {
+	if ( R ) {
+		return (Hight ( R -> right ) - Hight (R -> left));
+	}
+}
+Node * BalancedSearchTree :: LR_Once_Rotation ( Node * R ) {
+		if ( R == root ) {
+			Node * L = R -> left;
+			R -> left = L -> right;
+			if ( L -> right ) {
+				L -> right -> prev = R;
+			}
+			L -> right = R;
+			R -> prev = L;
+			root = L;
+			return L;
+		}
+		else {
+			Node * P = R -> prev;
+			Node * L = R -> left;
+			R -> left = L -> right;
+			if ( L -> right ) {
+				L -> right -> prev = R;
+			}
+			L -> right = R;
+			R -> prev = L;
+			L -> prev = P;
+			if ( P -> left == R ) {
+				P -> left = L;
+			}
+			else {
+				P -> right = L;
+			}
+			return L;
+		}
+}
+Node * BalancedSearchTree :: RL_Once_Rotation ( Node * R ) {
+			if ( R == root ) {
+				Node * Rt = R -> right;
+				R -> right = Rt -> left;
+				if ( Rt -> left ) {
+					Rt -> left -> prev = R;
+				}
+				Rt -> left = R;
+				R -> prev = Rt;
+				root = Rt;
+				return Rt;
+			}
+			else {
+				Node * Rt = R -> right;
+				Node * P = R -> prev;
+				R -> right = Rt -> left;
+				if ( Rt -> left ) {
+					Rt -> left -> prev = R;
+				}
+				Rt -> left = R;
+				R -> prev = Rt;
+				Rt -> prev = P;
+				if ( P -> left == R ) {
+					P -> left = Rt;
+				}
+				else {
+					P -> right = Rt;
+				}
+				return Rt;
+			}
+		}
+Node * BalancedSearchTree :: LR_Double_Rotation ( Node * R ) {
+	RL_Once_Rotation ( R -> left );
+	return LR_Once_Rotation ( R );
+}
+Node * BalancedSearchTree :: RL_Double_Rotation ( Node * R ) {
+	LR_Once_Rotation ( R -> right );
+	return RL_Once_Rotation ( R );
+}
+Node * BalancedSearchTree :: addKey ( Node * R, int k ) {
+	Node * T = SearchTree :: addKey ( root, k );
+	Node * lastRotation;
+	while ( T != root && T != NULL ) {
+		Node * Son = T;
+		T = T -> prev;
+		int b = Balance ( T );
+		if (  b == 2 || b == -2 ) { // if need change balance
+			if ( b == 2 ) {
+				Node * S = T -> right;
+				if ( Balance ( S ) == 1 || Balance ( S ) == 0 ) {
+					T = RL_Once_Rotation ( T );
+				}
+				else {
+					T = RL_Double_Rotation ( T );
+				}
+				lastRotation = T;
+			}
+			else {
+				Node * S = T -> left;
+				if ( Balance ( S ) == -1 || Balance ( S ) == 0 ) {
+					T = LR_Once_Rotation ( T );
+				}
+				else {
+					T = LR_Double_Rotation ( T );
+				}
+				lastRotation = T;
+			}
+		}
+	}
+	return lastRotation;
+}
+void BalancedSearchTree :: addKeyToTree ( int k ) {
+	if ( root == NULL ) {
+		root = new Node ( k );
+		return;
+	}
+	addKey ( root, k );
+}
+
 void PrintT(Graphics^ gr, Node *u, int l, int r, int y, int x_r)
 {	int x = (l + r)/2;
 	

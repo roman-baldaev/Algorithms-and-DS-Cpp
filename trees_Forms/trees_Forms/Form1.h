@@ -2,6 +2,7 @@
 
 binaryTree A;
 SearchTree B;
+BalancedSearchTree C;
 Node * AddHead; //узел для выделения цветом добавленного
 Node * prevAdd; //предыдущий добавленный
 Node * prevFind;  //предыдущий найденный
@@ -66,6 +67,12 @@ namespace trees_Forms {
 	private: System::Windows::Forms::Button^  delete_ST_butt;
 	private: System::Windows::Forms::Button^  add_ST_Butt;
 	private: System::Windows::Forms::Button^  showSTelements;
+	private: System::Windows::Forms::TextBox^  rotation_Text;
+	private: System::Windows::Forms::Label^  rotation_Label;
+	private: System::Windows::Forms::Button^  RL_Rotation;
+	private: System::Windows::Forms::Button^  LR_Rotation;
+	private: System::Windows::Forms::Button^  BS_Tree_Butt;
+	private: System::Windows::Forms::Button^  show_BST_Butt;
 
 
 
@@ -94,6 +101,12 @@ namespace trees_Forms {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->addNode = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->BS_Tree_Butt = (gcnew System::Windows::Forms::Button());
+			this->RL_Rotation = (gcnew System::Windows::Forms::Button());
+			this->LR_Rotation = (gcnew System::Windows::Forms::Button());
+			this->rotation_Text = (gcnew System::Windows::Forms::TextBox());
+			this->rotation_Label = (gcnew System::Windows::Forms::Label());
+			this->showSTelements = (gcnew System::Windows::Forms::Button());
 			this->add_ST_Butt = (gcnew System::Windows::Forms::Button());
 			this->delete_ST_butt = (gcnew System::Windows::Forms::Button());
 			this->find_ST_but = (gcnew System::Windows::Forms::Button());
@@ -109,7 +122,7 @@ namespace trees_Forms {
 			this->labelFindNode = (gcnew System::Windows::Forms::Label());
 			this->show_Tree = (gcnew System::Windows::Forms::Button());
 			this->Add = (gcnew System::Windows::Forms::Button());
-			this->showSTelements = (gcnew System::Windows::Forms::Button());
+			this->show_BST_Butt = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -176,6 +189,12 @@ namespace trees_Forms {
 			// groupBox1
 			// 
 			this->groupBox1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->groupBox1->Controls->Add(this->show_BST_Butt);
+			this->groupBox1->Controls->Add(this->BS_Tree_Butt);
+			this->groupBox1->Controls->Add(this->RL_Rotation);
+			this->groupBox1->Controls->Add(this->LR_Rotation);
+			this->groupBox1->Controls->Add(this->rotation_Text);
+			this->groupBox1->Controls->Add(this->rotation_Label);
 			this->groupBox1->Controls->Add(this->showSTelements);
 			this->groupBox1->Controls->Add(this->add_ST_Butt);
 			this->groupBox1->Controls->Add(this->delete_ST_butt);
@@ -205,6 +224,64 @@ namespace trees_Forms {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Make Tree";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &Form1::groupBox1_Enter);
+			// 
+			// BS_Tree_Butt
+			// 
+			this->BS_Tree_Butt->Location = System::Drawing::Point(187, 79);
+			this->BS_Tree_Butt->Name = L"BS_Tree_Butt";
+			this->BS_Tree_Butt->Size = System::Drawing::Size(75, 23);
+			this->BS_Tree_Butt->TabIndex = 24;
+			this->BS_Tree_Butt->Text = L"BS. tree";
+			this->BS_Tree_Butt->UseVisualStyleBackColor = true;
+			this->BS_Tree_Butt->Click += gcnew System::EventHandler(this, &Form1::BS_Tree_Butt_Click);
+			// 
+			// RL_Rotation
+			// 
+			this->RL_Rotation->Location = System::Drawing::Point(964, 131);
+			this->RL_Rotation->Name = L"RL_Rotation";
+			this->RL_Rotation->Size = System::Drawing::Size(75, 23);
+			this->RL_Rotation->TabIndex = 23;
+			this->RL_Rotation->Text = L"RL to ST";
+			this->RL_Rotation->UseVisualStyleBackColor = true;
+			this->RL_Rotation->Click += gcnew System::EventHandler(this, &Form1::RL_Rotation_Click);
+			// 
+			// LR_Rotation
+			// 
+			this->LR_Rotation->Location = System::Drawing::Point(964, 102);
+			this->LR_Rotation->Name = L"LR_Rotation";
+			this->LR_Rotation->Size = System::Drawing::Size(75, 23);
+			this->LR_Rotation->TabIndex = 6;
+			this->LR_Rotation->Text = L"LR to ST";
+			this->LR_Rotation->UseVisualStyleBackColor = true;
+			this->LR_Rotation->Click += gcnew System::EventHandler(this, &Form1::LR_Rotation_Click);
+			// 
+			// rotation_Text
+			// 
+			this->rotation_Text->Location = System::Drawing::Point(858, 103);
+			this->rotation_Text->Name = L"rotation_Text";
+			this->rotation_Text->Size = System::Drawing::Size(100, 22);
+			this->rotation_Text->TabIndex = 22;
+			this->rotation_Text->TextChanged += gcnew System::EventHandler(this, &Form1::rotation_Text_TextChanged);
+			// 
+			// rotation_Label
+			// 
+			this->rotation_Label->AutoSize = true;
+			this->rotation_Label->Location = System::Drawing::Point(779, 103);
+			this->rotation_Label->Name = L"rotation_Label";
+			this->rotation_Label->Size = System::Drawing::Size(65, 17);
+			this->rotation_Label->TabIndex = 21;
+			this->rotation_Label->Text = L"Rotation:";
+			this->rotation_Label->Click += gcnew System::EventHandler(this, &Form1::rotation_Label_Click);
+			// 
+			// showSTelements
+			// 
+			this->showSTelements->Location = System::Drawing::Point(382, 98);
+			this->showSTelements->Name = L"showSTelements";
+			this->showSTelements->Size = System::Drawing::Size(75, 46);
+			this->showSTelements->TabIndex = 20;
+			this->showSTelements->Text = L"Show ST elements";
+			this->showSTelements->UseVisualStyleBackColor = true;
+			this->showSTelements->Click += gcnew System::EventHandler(this, &Form1::showSTelements_Click);
 			// 
 			// add_ST_Butt
 			// 
@@ -355,15 +432,15 @@ namespace trees_Forms {
 			this->Add->UseVisualStyleBackColor = true;
 			this->Add->Click += gcnew System::EventHandler(this, &Form1::Add_Click);
 			// 
-			// showSTelements
+			// show_BST_Butt
 			// 
-			this->showSTelements->Location = System::Drawing::Point(382, 98);
-			this->showSTelements->Name = L"showSTelements";
-			this->showSTelements->Size = System::Drawing::Size(75, 46);
-			this->showSTelements->TabIndex = 20;
-			this->showSTelements->Text = L"Show ST elements";
-			this->showSTelements->UseVisualStyleBackColor = true;
-			this->showSTelements->Click += gcnew System::EventHandler(this, &Form1::showSTelements_Click);
+			this->show_BST_Butt->Location = System::Drawing::Point(544, 222);
+			this->show_BST_Butt->Name = L"show_BST_Butt";
+			this->show_BST_Butt->Size = System::Drawing::Size(88, 23);
+			this->show_BST_Butt->TabIndex = 25;
+			this->show_BST_Butt->Text = L"Show BST";
+			this->show_BST_Butt->UseVisualStyleBackColor = true;
+			this->show_BST_Butt->Click += gcnew System::EventHandler(this, &Form1::show_BST_Butt_Click);
 			// 
 			// Form1
 			// 
@@ -516,6 +593,36 @@ private: System::Void showSTelements_Click(System::Object^  sender, System::Even
 			 System::String^ a;
 			 B.obhod ( B.getRoot(), a);
 			 textObhod -> Text = a;
+		 }
+private: System::Void rotation_Label_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void rotation_Text_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void LR_Rotation_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int n = Convert::ToInt32(rotation_Text->Text);
+			 Node * T = B.findKey ( B.getRoot(), n );
+			 B.LR_Once_Rotation ( T );
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, B.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void RL_Rotation_Click(System::Object^  sender, System::EventArgs^  e) {
+			int n = Convert::ToInt32(rotation_Text->Text);
+			 Node * T = B.findKey ( B.getRoot(), n );
+			 B.RL_Once_Rotation ( T );
+			 Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, B.getRoot(),0,this->panel1->Width-26,5,-1);
+		 }
+private: System::Void BS_Tree_Butt_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int n = Convert::ToInt32(number->Text);  //размерность дерева
+				 BalancedSearchTree x (n, 100); //копия дерева 
+				 C=x;
+		 }
+private: System::Void show_BST_Butt_Click(System::Object^  sender, System::EventArgs^  e) {
+			  Graphics^ gr = this -> panel1 -> CreateGraphics();
+			gr ->  Clear( Color::White );
+			PrintT(gr, C.getRoot(),0,this->panel1->Width-26,5,-1);
 		 }
 };
 }
