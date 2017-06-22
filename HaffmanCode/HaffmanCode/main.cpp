@@ -13,4 +13,7 @@ void main () {
 			cout << (char)(i) << ": " << a[i] << endl;
 		}
 	}
+	Node * R = create_Sort_List ( a, "source.txt" );
+	Print ( R );
 }
+
