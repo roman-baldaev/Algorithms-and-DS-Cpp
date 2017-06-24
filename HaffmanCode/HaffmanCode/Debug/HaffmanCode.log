@@ -1,11 +1,13 @@
-﻿Построение начато 22.06.2017 19:58:26.
+﻿Построение начато 24.06.2017 22:09:53.
      1>Проект "c:\documents\visual studio 2010\Projects\HaffmanCode\HaffmanCode\HaffmanCode.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\HaffmanCode.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\documents\visual studio 2010\projects\haffmancode\haffmancode\haffman_tree.h(84): warning C4172: возвращение адреса локальной или временной переменной
+     1>c:\documents\visual studio 2010\projects\haffmancode\haffmancode\haffman_tree.h(91): warning C4172: возвращение адреса локальной или временной переменной
+     1>c:\documents\visual studio 2010\projects\haffmancode\haffmancode\haffman_tree.h(83): warning C4715: boolVect::get_Symbol: значение возвращается не при всех путях выполнения
+     1>c:\documents\visual studio 2010\projects\haffmancode\haffmancode\haffman_tree.h(245): warning C4715: table_Coding::find_Symbol: значение возвращается не при всех путях выполнения
        ManifestResourceCompile:
          Для всех выходных данных обновления не требуется.
        Link:
@@ -24,4 +26,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:01.08
+Затраченное время: 00:00:01.00
